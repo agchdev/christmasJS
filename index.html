@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <div id="app">
+        <div class="hero">
+            <h1>MERRY</h1>
+            <h2>CHRISTMAS</h2>
+        </div>
+        <div class="buttons">
+            <button type="button" id="gravity-btn">
+                Toggle gravity
+            </button>
+            <button type="button" id="colors-btn">
+                Random colors
+            </button>
+        </div>
+        <canvas id="webgl-canvas"></canvas>
+    </div>
+
+    <script type="module">
+        import Spheres1Background from 'https://cdn.jsdelivr.net/npm/threejs-components@0.0.15/build/backgrounds/spheres1.cdn.min.js'
+
+        const bg = Spheres1Background(document.getElementById('webgl-canvas'), {
+            count: 300,
+            minSize: 0.3,
+            maxSize: 1,
+            gravity: 0.5
+        })
+
+        // Establecer las esferas con colores rojos estilo navideño
+        function setChristmasColors() {
+            const redColor = 0xFF0000; // Rojo puro
+            const darkRedColor = 0x8B0000; // Rojo oscuro
+            bg.spheres.setColors([redColor, darkRedColor, redColor]);
+        }
+
+        document.getElementById('gravity-btn').addEventListener('click', () => {
+            bg.spheres.config.gravity = bg.spheres.config.gravity === 0 ? 1 : 0;
+        });
+
+        document.getElementById('colors-btn').addEventListener('click', () => {
+            setChristmasColors(); // Cambiar a colores navideños
+        });
+
+        // Inicializar con colores navideños al cargar la página
+        setChristmasColors();
+    </script>
+</body>
+
+</html>
