@@ -10,9 +10,11 @@
 
 <body>
     <div id="app">
+        <div id="logoEag">
+            <img src="EAG_Logo.png" alt="">
+        </div>
         <div class="hero">
-            <h1>MERRY</h1>
-            <h2>CHRISTMAS</h2>
+            <h1>FELIZ NAVIDAD</h1>
         </div>
         <div class="buttons">
             <button type="button" id="gravity-btn">
@@ -39,7 +41,9 @@
         function setChristmasColors() {
             const redColor = 0xFF0000; // Rojo puro
             const darkRedColor = 0x8B0000; // Rojo oscuro
-            bg.spheres.setColors([redColor, darkRedColor, redColor]);
+            const greenColor = 0x006400;
+            const greenClaro = 0x7CFC00; // Realmente como si pareciese que trabajmos
+            bg.spheres.setColors([redColor, darkRedColor, redColor, greenClaro, greenColor, greenClaro]);
         }
 
         document.getElementById('gravity-btn').addEventListener('click', () => {
